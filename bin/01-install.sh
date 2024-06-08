@@ -1,8 +1,10 @@
 #!/bin/bash
 
+source $HOME/.env
+
 # Default paths for pacman and yay package lists
-PACMAN_FILE="./skogix-pacman.pkgs"
-YAY_FILE="./skogix-yay.pkgs"
+PACMAN_FILE="$HOME/bin/skogix-pacman.pkgs"
+YAY_FILE="$HOME/bin/skogix-yay.pkgs"
 
 # Function to install packages using pacman
 install_pacman() {
