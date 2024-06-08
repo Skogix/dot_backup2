@@ -1,5 +1,7 @@
 source $HOME/.env
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=/usr/bin/zk:$PATH
+
 ZSH_THEME="agnoster"
 plugins=(
   git 
@@ -11,6 +13,7 @@ plugins=(
   zoxide
   zsh-z
   zsh-autosuggestions 
+  taskwarrior
   # archlinux 
   # gitfast 
   aliases 
@@ -51,3 +54,4 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+export NOTES_DIR=/home/skogix/Projects/notes

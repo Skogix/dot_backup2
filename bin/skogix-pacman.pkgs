@@ -29,3 +29,14 @@ libvirt
 pandoc
 xclip
 zoxide
+zk
+python 
+fzf 
+ripgrep 
+pandoc 
+wget
+python-pynvim
+tailscale
+networkmanager
+firewalld
+udisks2

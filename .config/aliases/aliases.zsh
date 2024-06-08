@@ -16,3 +16,4 @@ alias dup="docker compose -f /home/skogix/srv/docker-compose.yaml up -d"
 alias dprune="docker system prune -a --volumes"
 alias dtop="oxker"
 alias aliases="als"
+alias sc='sudo SYSTEMD_EDITOR=/bin/vi /usr/bin/systemctl'
