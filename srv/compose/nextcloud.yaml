@@ -1,0 +1,104 @@
+version: "3.7"
+# Above we must declare the docker-compose file version which allows Docker to
+#    understand the syntax we are using. Normally does not need to change.
+# Services (containers) we would like this document to run
+services:
+  ## All services/containers go below this line (note the two space indentation in front).
+  # Nextcloud Docker Application
+  nextcloud:
+    # required: true # default
+    # Use the official nextcloud image (v21.0.0 at time of writing this)
+    image: nextcloud:21
+    # Set to allow easy Docker DNS name resolution - not strictly necessary
+    container_name: nextcloud
+    # Same as above
+    hostname: nextcloud
+    # Container will restart unless we specifically stop it
+    restart: unless-stopped
+    # Defines how we want our container to connect outside
+    networks:
+      # Use an internal network for the nextcloud services
+      - nextcloud
+    # Open ports in the format host:container - We will remove this later
+    ports:
+      # INSECURE - we will remove this later after completing a few more steps in this guide
+      - 80:80
+    # Persistent volumes with bind mounts to easily move/backup data
+    # volumes:
+    #    - ./root/instantclient_12_2/ojdbc8.jar:/etc/kafka-connect/jars/ojdbc8.jar
+    #    - type: bind
+    #      source: $HOST/etc
+    #      target: /kernel-etc
+    volumes:
+      # I like to use the /opt folder to hold my Docker bind mounted volumes
+      - ./nextcloud:/var/www/html
+    # Environment (internal to the container) variables to simplify setup
+    environment:
+      # Redis host name (container_name)
+      REDIS_HOST: nc-redis
+  # Nextcloud Database - Using MariaDB, but can also use MySQL or PostgreSQL
+  nextcloud-db:
+    # MariaDB 10.5 again not using latest to prevent future breakage
+    image: mariadb:10.5
+    # Set to allow easy Docker DNS name resolution - not strictly necessary
+    container_name: nc-db
+    # Same as above
+    hostname: nc-db
+    # Container will restart unless we specifically stop it
+    restart: unless-stopped
+    # Recommended database settings as listed in:
+    # https://docs.nextcloud.com/server/21/admin_manual/configuration_database/linux_database_configuration.html
+    command: --transaction-isolation=READ-COMMITTED --log-bin=msqyld-bin --binlog-format=ROW
+    # Defines how we want our container to connect outside
+    networks:
+      # ONLY using an internal network and not exposing to the internet
+      - nextcloud
+    # Persistent volumes with bind mounts to easily move/backup data
+    volumes:
+      # I like to use the /opt folder to hold my Docker bind mounted volumes
+      - /opt/volumes/nextcloud-db:/var/lib/mysql
+    # We add our secrets here
+    secrets:
+      - db_root_password
+      - db_password
+    # Environment (internal to the container) variables to simplify setup (notice the secrets used below)
+    environment:
+      MYSQL_USER: nextcloud
+      MYSQL_DATABASE: nextcloud
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+  # Nextcloud (in memory) Redis Cache - speed up lookup transactions
+  # Speeds up Nextcloud by reducing the time spent "looking" for things
+  nc-redis:
+    # Official REDIS 6.2 image based upon alpine Linux (to keep it lightweight)
+    image: redis:6.2-alpine
+    # Set to allow easy Docker DNS name resolution - not strictly necessary
+    container_name: nc-redis
+    # Same as above
+    hostname: nc-redis
+    # Container will restart unless we specifically stop it
+    restart: unless-stopped
+    # Defines how we want our container to connect outside
+    networks:
+    # ONLY using an internal network and not exposing to the internet
+      - nextcloud
+    # Persistent volumes with bind mounts to easily move/backup data
+    volumes:
+    # I like to use the /opt folder to hold my Docker bind mounted volumes
+      - /opt/volumes/nextcloud-redis:/data
+# Declare networks at the high level to avoid confusion and to access those
+#   not initially started by this document.
+networks:
+  # Internal facing network for Nextcloud Docker containers
+  nextcloud:
+    name: nextcloud
+    # Define how we want the network created
+    driver: bridge
+# Must use a high level declaration of our secrets (notice the use of the environmental variable 
+#   we set above in .env)
+# - <host_directory>:<container_directory>:<access_mode>
+secrets:
+  db_password:
+    file: $DOCKER_SECRETS/db_password
+  db_root_password:
+    file: $DOCKER_SECRETS/db_root_password
