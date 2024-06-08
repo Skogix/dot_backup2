@@ -3,6 +3,13 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 ZSH_THEME="agnoster"
 plugins=(
   git 
+  docker
+  docker-compose
+  ripgrep
+  vi-mode
+  z
+  zoxide
+  zsh-z
   zsh-autosuggestions 
   # archlinux 
   # gitfast 
