@@ -1,6 +1,7 @@
 alias l='lsd'
 alias lsa='lsd -a'
 alias vimrc='nvim ~/.config/nvim/init.lua'
+alias envrc='nvim ~/.env'
 alias aliasrc='nvim ~/.config/aliases/aliases.zsh'
 alias bootstraprc='nvim ~/.config/yadm/bootstrap'
 alias vimrc="nvim ~/.config/nvim/init.lua"
