@@ -1,4 +1,3 @@
-# version: "3.7"
 # include:
 #   - ./compose/nextcloud.yaml
 
@@ -80,7 +79,7 @@ include:
   - compose/socket-proxy.yml
 #   - compose/oauth.yml
 #   - compose/authelia.yml
-#   - compose/portainer.yml
+  - compose/portainer.yml
 #   - compose/dockge.yml
 #   # SECURITY
 #   - compose/crowdsec.yml
@@ -107,7 +106,7 @@ include:
 #   # MONITORING
 #   - compose/grafana.yml
 #   - compose/uptime-kuma.yml
-#   - compose/dozzle.yml
+  - compose/dozzle.yml
 #   - compose/scrutiny.yml
 #   # - compose/radarr-exporter.yml
 #   # - compose/sonarr-exporter.yml

@@ -13,6 +13,7 @@ alias dockerpurge="docker system prune -a --volumes"
 alias dlog="docker compose -f /home/skogix/srv/docker-compose.yaml logs"
 alias dtail="docker compose -f /home/skogix/srv/docker-compose.yaml logs -tf --tail="50" crowdsec"
 alias dup="docker compose -f /home/skogix/srv/docker-compose.yaml up -d"
+alias ddown='docker stop $(docker ps -a -q)'
 alias dprune="docker system prune -a --volumes"
 alias dtop="oxker"
 alias aliases="als"
