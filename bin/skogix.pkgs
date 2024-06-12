@@ -1,3 +1,4 @@
+
 zsh
 spotify-launcher
 github-cli
@@ -41,5 +42,17 @@ networkmanager
 firewalld
 udisks2
 tree
--S
 cmatrix
+lazygit
+gitflow-avh
+docker-compose
+lazydocker
+oh-my-zsh-git
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-z
+armcord
+neovim-remote
+meta-group-texlive-most
+docker-rootless-extras
+oxker
