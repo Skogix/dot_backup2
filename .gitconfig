@@ -5,8 +5,8 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [user]
-	email = =
-	name = =
+	email = emil.skogsund@gmail.com
+	name = Emil Skogsund
 [core]
 	editor = nvim
 [diff]
