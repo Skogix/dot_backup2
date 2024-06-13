@@ -1,0 +1,11 @@
+rock_manifest = {
+   doc = {
+      ["CHANGELOG.md"] = "95ac90ac351eb193e9ce174d7225dc4a",
+      LICENSE = "6bcb3636a93bdb8304439a4ff57e979c",
+      ["README.md"] = "78fbae3f1fc12627edf4c01bcbbbaf15"
+   },
+   lib = {
+      ["toml_edit.so"] = "a43fb3935a46529542c9f8abe007e372"
+   },
+   ["toml-edit-0.3.6-1.rockspec"] = "b566f5abfbfac48663828acdf6f328da"
+}
