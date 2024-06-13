@@ -1,6 +1,5 @@
 *.swp
 .DS_Store
-*~
 *.sublime-*
 *.d/localhost
 aptitude/cache
@@ -34,16 +33,6 @@ mutt/certificates
 task/task/*.data
 tmp/*
 config/gh/hosts.yml
-config/nvim
-org
-
-.cache
-.cache
-.cargo
-.cache
-.cache/go-build
-.cache/luarocks
-.cache/nvim
-.cache/oh-my-zsh
-.cache/yay
-.ssh
+config/nvim/*
+org/*
+.cache/*
