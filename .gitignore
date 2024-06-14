@@ -33,7 +33,6 @@ mutt/certificates
 task/task/*.data
 tmp/*
 config/gh/hosts.yml
-<<<<<<< HEAD
 config/nvim
 org
 
@@ -48,9 +47,7 @@ org
 .cache/yay
 .ssh
 .zsh_history
-=======
 config/nvim/*
 org/*
 .cache/*
 .config/gh/hosts.yml
->>>>>>> 1896b6c478b43daeb1e982c0952eb928649f8392
