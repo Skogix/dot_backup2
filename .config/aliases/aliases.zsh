@@ -1,5 +1,5 @@
-alias l='lsd'
 alias lsa='lsd -a'
+alias vim='nvim'
 alias vimrc='nvim ~/.config/nvim/init.lua'
 alias envrc='nvim ~/.env'
 alias aliasrc='nvim ~/.config/aliases/aliases.zsh'
@@ -19,9 +19,12 @@ alias dup="docker compose -f /home/skogix/srv/docker-compose.yml up -d"
 alias ddown="docker compose -f /home/skogix/srv/docker-compose.yml down"
 alias ddownall='docker stop $(docker ps -a -q)'
 alias dprune="docker system prune -a --volumes"
+alias ctl="systemctl-tui"
 alias dtop="oxker"
 alias aliases="als"
-alias sc='sudo SYSTEMD_EDITOR=/bin/vi /usr/bin/systemctl'
+alias sc='systemctl --user'
+alias mobil='scrcpy'
+
 syay() {
     #do things with parameters like $1 such as
     echo "$1" > /home/skogix/bin/skogix-yay.pkgs
