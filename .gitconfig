@@ -1,15 +1,7 @@
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
 [user]
 	email = emil.skogsund@gmail.com
 	name = Emil Skogsund
-[core]
-	editor = nvim
-[diff]
-	tool = vimdiff3
-[pull]
-	rebase = false
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
