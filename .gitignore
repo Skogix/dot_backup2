@@ -36,3 +36,4 @@ config/gh/hosts.yml
 config/nvim/*
 org/*
 .cache/*
+.config/gh/hosts.yml
