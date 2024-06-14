@@ -47,3 +47,4 @@ org
 .cache/oh-my-zsh
 .cache/yay
 .ssh
+.zsh_history
