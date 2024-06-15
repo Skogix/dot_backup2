@@ -33,8 +33,6 @@ mutt/certificates
 task/task/*.data
 tmp/*
 config/gh/hosts.yml
-config/nvim
-org
 
 .cache
 .cache
